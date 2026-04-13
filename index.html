@@ -456,6 +456,405 @@
     .version-section { page-break-inside: avoid; }
     .card, .v1-wrap, .v1-back-wrap { filter: none; }
   }
+
+  /* ================================
+     EXHIBITION SITE STYLES
+     ================================ */
+:root {
+    --bg: #f5f0e8;
+    --bg-card: #faf6ef;
+    --text: #3d3424;
+    --text-light: #8a7d6b;
+    --text-muted: #a09580;
+    --accent: #6b8c42;
+    --accent-light: #8aad5a;
+    --accent-pale: #e8ebd6;
+    --border: #e0d8ca;
+    --dark: #3d3a35;
+  }
+
+
+
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-pale) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    opacity: 0.5;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d4c5a0 0%, transparent 70%);
+    bottom: -80px; left: -80px;
+    opacity: 0.3;
+  }
+
+  .hero-seed {
+    position: relative; z-index: 1;
+    margin-bottom: 32px;
+  }
+
+  .hero-school {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-theme {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(64px, 12vw, 120px);
+    font-weight: 900;
+    color: var(--text);
+    letter-spacing: 20px;
+    line-height: 1.1;
+    position: relative; z-index: 1;
+  }
+
+  .hero-theme .dot {
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+    letter-spacing: 4px;
+    margin-top: 16px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-en {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    margin-top: 8px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-info {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative; z-index: 1;
+  }
+
+  .hero-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  .hero-info-item svg { flex-shrink: 0; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: float 2s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text);
+    letter-spacing: 6px;
+  }
+
+  .section-line {
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin: 16px auto 0;
+  }
+
+  /* ===== ABOUT ===== */
+  .about {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 2;
+    margin-bottom: 24px;
+  }
+
+  .about-quote {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    padding: 20px 0;
+    border-top: 1px dashed var(--border);
+    border-bottom: 1px dashed var(--border);
+  }
+
+  /* ===== WORKS GRID ===== */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .work-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border);
+  }
+
+  .work-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+
+  .work-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--accent-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .work-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  .work-placeholder span {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .work-number {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--dark);
+    color: #f0ece4;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+
+  .work-body {
+    padding: 20px;
+  }
+
+  .work-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .work-author {
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .work-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* ===== VENUE ===== */
+  .venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .venue-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .venue-card::before {
+    content: '';
+    position: absolute;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-pale) 0%, transparent 70%);
+    top: -40px; right: -40px;
+    opacity: 0.4;
+  }
+
+  .venue-tag {
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+
+  .venue-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .venue-addr {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .venue-note {
+    font-size: 12px;
+    color: var(--text-light);
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark);
+    color: #a09580;
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 2;
+  }
+
+  footer strong {
+    color: #d4c9b8;
+    font-weight: 400;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(245,240,232,0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 14px 24px;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+  }
+
+  nav.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  nav a {
+    font-size: 12px;
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero-info { flex-direction: column; gap: 12px; }
+    .works-grid { grid-template-columns: 1fr; }
 </style>
 </head>
 <body>
@@ -483,7 +882,7 @@
         <div class="v1-details">
           <div class="v1-detail">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#6b5e4d"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            <span>開幕儀式：5/11（一）19:00 B1簡報室</span>
+            <span>開幕儀式：5/11（一）14:00 B1簡報室</span>
           </div>
           <div class="v1-detail">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#6b5e4d"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
@@ -581,7 +980,7 @@
         <div class="v2-divider"></div>
         <div class="v2-meta">
           第九屆創造力資優班畢業成果展<br>
-          開幕儀式：5/11（一）19:00<br>
+          開幕儀式：5/11（一）14:00<br>
           展覽：115.05.12（二）— 05.15（五）<br>
           開幕：青溪國小 B1 簡報室<br>
           展覽：土地公文化館 ／ 青溪國小 2F
@@ -644,7 +1043,7 @@
         </div>
         <div class="v3-line"></div>
         <div class="v3-meta">
-          開幕儀式 ── 5/11（一）19:00 B1 簡報室<br>
+          開幕儀式 ── 5/11（一）14:00 B1 簡報室<br>
           展期 ── 115.05.12（二）— 05.15（五）<br>
           展覽 ── 土地公文化館 ／ 青溪國小 2F
         </div>
@@ -686,6 +1085,357 @@
     </div>
   </div>
 </div>
+
+
+<!-- =============================================
+     EXHIBITION SITE
+     ============================================= -->
+<div style="height:80px;"></div>
+<div style="max-width:600px;margin:0 auto;text-align:center;padding:0 20px 40px;">
+  <div style="width:60px;height:2px;background:#6b8c42;margin:0 auto 16px;"></div>
+  <div style="font-family:'Noto Serif TC',serif;font-size:18px;color:#3d3424;letter-spacing:4px;">展覽網站預覽</div>
+  <div style="font-size:11px;color:#a09580;margin-top:6px;letter-spacing:2px;">以下為成果展網站的完整版面</div>
+  <div style="width:60px;height:2px;background:#6b8c42;margin:16px auto 0;"></div>
+</div>
+
+<nav id="nav">
+  <a href="#about">展覽介紹</a>
+  <a href="#works">學生作品</a>
+  <a href="#venue">會場資訊</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-seed">
+    <svg width="80" height="100" viewBox="0 0 80 100" fill="none">
+      <path d="M40 90 L40 50" stroke="#6b8c42" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M40 50 Q26 38 20 20 Q32 32 40 50" fill="#8aad5a" opacity="0.8"/>
+      <path d="M40 50 Q54 36 60 18 Q48 32 40 50" fill="#6b8c42" opacity="0.7"/>
+      <path d="M40 50 Q30 42 22 34 Q34 38 40 50" fill="#a8c47a" opacity="0.5"/>
+      <ellipse cx="40" cy="93" rx="14" ry="4" fill="#c4b89e" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="hero-school">桃園市青溪國小 ── 第九屆創造力資優班</div>
+  <div class="hero-theme">種子<span class="dot">。</span></div>
+  <div class="hero-subtitle">畢 業 成 果 展</div>
+  <div class="hero-en">SEEDS — 9th Gifted Class Graduation Exhibition 2026</div>
+
+  <div class="hero-info">
+    <div class="hero-info-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#6b8c42"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+      <span>開幕儀式：5/11（一）14:00</span>
+    </div>
+    <div class="hero-info-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#6b8c42"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+      <span>展覽：115.05.12（二）— 05.15（五）</span>
+    </div>
+    <div class="hero-info-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#6b8c42"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <span>土地公文化館 ／ 青溪國小 2F</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    向下瀏覽
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#a09580"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">ABOUT</div>
+      <div class="section-title">展覽介紹</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-content">
+      <p class="about-text">
+        每一顆種子，都蘊含著成長的力量。<br>
+        第九屆創造力資優班的同學們，歷經兩年的探索與學習，<br>
+        將所學化為一件件獨特的畢業製作。<br>
+        這場展覽，是他們播下的種子，也是即將綻放的起點。
+      </p>
+      <div class="about-quote">
+        「每一個作品，都是一顆等待發芽的種子。」
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKS ===== -->
+<section id="works">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">WORKS</div>
+      <div class="section-title">學生作品</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="works-grid">
+
+      <!-- ====== 作品 1 ~ 14 ======
+           替換方式：
+           1. 將 <div class="work-placeholder">...</div> 換成 <img src="作品圖片.jpg" alt="作品名稱">
+           2. 修改 work-title 的文字為作品名稱
+           3. 修改 work-author 的文字為學生姓名
+           4. 修改 work-desc 的文字為作品簡介
+      ============================== -->
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">01</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-2 陳睿璁</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">02</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-2 康富翔</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">03</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-2 李佳平</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">04</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-3 彭子綦</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">05</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-3 林朋緯</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">06</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-5 陳彥齊</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">07</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-5 林廷蔚</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">08</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-5 鄭維綱</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">09</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-6 黃彥霖</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">10</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-6 簡呈愷</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">11</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-9 曾守辰</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">12</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-9 范丰彥</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">13</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-10 洪鈺翔</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-number">14</div>
+          <div class="work-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>待放作品圖片</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-title">作品名稱</div>
+          <div class="work-author">6-10 鄧翔陽</div>
+          <div class="work-desc">作品簡介文字。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== VENUE ===== -->
+<section id="venue">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">VENUE</div>
+      <div class="section-title">會場資訊</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="venue-grid">
+      <div class="venue-card">
+        <div class="venue-tag">VENUE 1 ── 會場一（作品 1 ~ 5）</div>
+        <div class="venue-name">桃園市土地公文化館</div>
+        <div class="venue-addr">桃園市桃園區三民路一段100號</div>
+        <div class="venue-note">展覽期間：115 年 5 月 12 日（二）至 5 月 15 日（五）</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-tag">VENUE 2 ── 會場二（作品 6 ~ 14）</div>
+        <div class="venue-name">青溪國小 2F 多功能教室</div>
+        <div class="venue-addr">桃園市桃園區自強路80號</div>
+        <div class="venue-note">開幕儀式：115 年 5 月 11 日（一）14:00，B1 簡報室</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <strong>桃園市青溪國小</strong> ── 第九屆創造力資優班畢業成果展<br>
+  種子 SEEDS ・ 114 學年度<br>
+  <span style="color:#6b5e4d;">輔導室 主辦</span>
+</footer>
+
+<script>
+  // Show nav after scrolling past hero
+  const nav = document.getElementById('nav');
+  const hero = document.querySelector('.hero');
+  const observer = new IntersectionObserver(([entry]) => {
+    nav.classList.toggle('visible', !entry.isIntersecting);
+  }, { threshold: 0.1 });
+  observer.observe(hero);
+</script>
 
 </body>
 </html>
