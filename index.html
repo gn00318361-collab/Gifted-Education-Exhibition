@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>種子卡邀請函 — 三版比較</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e8e0d4;
+    font-family: 'Noto Sans TC', sans-serif;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Noto Serif TC', serif;
+    color: #3d3424;
+    font-size: 22px;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+  }
+
+  .page-note {
+    text-align: center;
+    font-size: 12px;
+    color: #a09580;
+    margin-bottom: 50px;
+  }
+
+  .version-section {
+    margin-bottom: 80px;
+  }
+
+  .version-title {
+    text-align: center;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    color: #6b5e4d;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #c8c0b4;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .version-desc {
+    text-align: center;
+    font-size: 11px;
+    color: #a09580;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+
+  .card-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .side-label {
+    font-size: 11px;
+    color: #a09580;
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  .card {
+    width: 560px;
+    height: 220px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.12));
+  }
+
+  /* ================================
+     VERSION 1 — Ticket tear-line
+     ================================ */
+  .v1-wrap {
+    display: flex;
+    width: 560px;
+    height: 220px;
+    filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.12));
+  }
+
+  .v1-main {
+    flex: 1;
+    background: #faf6ef;
+    border-radius: 12px 0 0 12px;
+    padding: 22px 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .v1-main::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d4c5a0 0%, transparent 70%);
+    opacity: 0.3;
+  }
+
+  .v1-tear {
+    width: 3px;
+    background: repeating-linear-gradient(to bottom, #d8d0c0 0px, #d8d0c0 6px, transparent 6px, transparent 12px);
+    position: relative;
+  }
+  .v1-tear::before, .v1-tear::after {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    background: #e8e0d4;
+    border-radius: 50%;
+    left: -8px;
+  }
+  .v1-tear::before { top: -10px; }
+  .v1-tear::after { bottom: -10px; }
+
+  .v1-stub {
+    width: 110px;
+    background: #faf6ef;
+    border-radius: 0 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .v1-stub-year { font-size: 9px; color: #b0a590; letter-spacing: 2px; }
+  .v1-stub-theme {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px; font-weight: 900; color: #6b8c42;
+    letter-spacing: 4px; line-height: 1.3;
+  }
+  .v1-stub-label { font-size: 8px; color: #b0a590; letter-spacing: 4px; }
+
+  .v1-school { font-size: 10px; color: #a09580; letter-spacing: 2px; margin-bottom: 4px; }
+  .v1-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 28px; font-weight: 900; color: #3d3424;
+    letter-spacing: 4px; line-height: 1.2;
+  }
+  .v1-title .accent { color: #6b8c42; }
+  .v1-subtitle { font-size: 11px; color: #8a7d6b; margin-top: 3px; letter-spacing: 1px; }
+
+  .v1-details { display: flex; gap: 20px; z-index: 1; position: relative; }
+  .v1-detail { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #6b5e4d; }
+  .v1-bottom { display: flex; justify-content: space-between; align-items: flex-end; z-index: 1; position: relative; }
+  .v1-venue { font-size: 9.5px; color: #8a7d6b; }
+  .v1-no { font-size: 10px; color: #c8c0b4; letter-spacing: 3px; font-weight: 700; }
+
+  /* V1 BACK — ticket style with tear + stub */
+  .v1-back-wrap {
+    display: flex;
+    width: 560px;
+    height: 220px;
+    filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.12));
+  }
+
+  .v1-back-main {
+    flex: 1;
+    background: #faf6ef;
+    border-radius: 12px 0 0 12px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .v1-back-main::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: -20px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #b8c9a1 0%, transparent 70%);
+    opacity: 0.15;
+  }
+
+  .v1-back-left { flex: 1; display: flex; flex-direction: column; justify-content: space-between; z-index: 1; }
+  .v1-back-right {
+    width: 120px; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border-left: 1px dashed #d4c9b8; padding-left: 16px;
+  }
+
+  .v1-back-stub {
+    width: 110px;
+    background: #faf6ef;
+    border-radius: 0 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    gap: 6px;
+  }
+
+  .v1-back-stub-note {
+    font-size: 8px; color: #a09580;
+    text-align: center; letter-spacing: 1px;
+    line-height: 1.5;
+  }
+
+  /* ================================
+     VERSION 2 — Circle window
+     ================================ */
+  .v2-front {
+    background: #faf6ef;
+    display: flex;
+    align-items: center;
+  }
+
+  .v2-circle-area {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .v2-circle {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8ebd6 0%, #d5dcc0 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+
+  .v2-circle::after {
+    content: '';
+    position: absolute;
+    width: 162px; height: 162px;
+    border-radius: 50%;
+    border: 1px solid #c8c0b4;
+  }
+
+  .v2-info {
+    flex: 1;
+    padding: 24px 32px 24px 16px;
+    display: flex; flex-direction: column;
+    justify-content: center; gap: 10px;
+  }
+
+  .v2-school { font-size: 9px; color: #a09580; letter-spacing: 3px; }
+  .v2-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px; font-weight: 900; color: #3d3424; letter-spacing: 6px;
+  }
+  .v2-en { font-size: 10px; color: #b0a590; letter-spacing: 2px; }
+  .v2-divider { width: 40px; height: 1px; background: #c8c0b4; }
+  .v2-meta { font-size: 11px; color: #6b5e4d; line-height: 1.8; }
+
+  /* V2 BACK — circle motif */
+  .v2-back {
+    background: #faf6ef;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .v2-back-circle-area {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .v2-back-circle {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    border: 1px solid #d8d0c4;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 6px;
+    position: relative;
+  }
+
+  .v2-back-circle::after {
+    content: '';
+    position: absolute;
+    width: 162px; height: 162px;
+    border-radius: 50%;
+    border: 1px dashed #e0d8ca;
+  }
+
+  .v2-back-info {
+    flex: 1;
+    padding: 22px 28px 22px 16px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .v2-back-deco-circle {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid #ece6da;
+    top: -60px; right: -60px;
+    opacity: 0.4;
+  }
+
+  /* ================================
+     VERSION 3 — Color block split
+     ================================ */
+  .v3-front { display: flex; }
+
+  .v3-left {
+    width: 200px;
+    background: #3d3a35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .v3-left::before {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #6b8c42 0%, transparent 70%);
+    opacity: 0.15;
+  }
+
+  .v3-theme {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 56px; font-weight: 900;
+    color: #f0ece4;
+    letter-spacing: 10px;
+    writing-mode: vertical-rl;
+    position: relative; z-index: 1;
+  }
+
+  .v3-year-label {
+    font-size: 9px; color: #8a837a;
+    letter-spacing: 2px; margin-top: 12px;
+    position: relative; z-index: 1;
+  }
+
+  .v3-right {
+    flex: 1;
+    background: #faf6ef;
+    padding: 28px 32px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .v3-school { font-size: 9px; color: #a09580; letter-spacing: 3px; }
+  .v3-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px; font-weight: 900; color: #3d3424;
+    letter-spacing: 3px; margin-top: 4px;
+  }
+  .v3-en { font-size: 10px; color: #b0a590; letter-spacing: 1px; margin-top: 2px; }
+  .v3-line { width: 100%; height: 1px; background: #e0d8ca; margin: 12px 0; }
+  .v3-meta { font-size: 11px; color: #6b5e4d; line-height: 2; }
+  .v3-footer { display: flex; justify-content: space-between; align-items: flex-end; }
+  .v3-venue { font-size: 9px; color: #a09580; }
+  .v3-badge {
+    font-size: 8px; color: #6b8c42;
+    border: 1px solid #6b8c42;
+    padding: 3px 10px; border-radius: 2px; letter-spacing: 2px;
+  }
+
+  /* V3 BACK — color block split */
+  .v3-back { display: flex; }
+
+  .v3-back-left {
+    width: 200px;
+    background: #3d3a35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .v3-back-left::before {
+    content: '';
+    position: absolute;
+    top: -30px; left: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #6b8c42 0%, transparent 70%);
+    opacity: 0.12;
+  }
+
+  .v3-back-right {
+    flex: 1;
+    background: #faf6ef;
+    padding: 22px 28px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* ================================
+     SHARED ELEMENTS
+     ================================ */
+  .back-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px; font-weight: 700; color: #3d3424;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e0d8ca;
+  }
+
+  .venue-block { margin-bottom: 6px; }
+  .venue-label { font-size: 9px; color: #6b8c42; font-weight: 700; letter-spacing: 1px; margin-bottom: 1px; }
+  .venue-name { font-size: 11px; color: #3d3424; font-weight: 700; }
+  .venue-addr { font-size: 9px; color: #a09580; }
+
+  .seed-note {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px dashed #d4c9b8;
+    font-size: 8.5px; color: #8a7d6b; line-height: 1.6;
+  }
+  .seed-note strong { color: #6b8c42; font-size: 9px; }
+
+  .qr-box {
+    width: 80px; height: 80px;
+    border: 2px dashed #d4c9b8;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8.5px; color: #b0a590; text-align: center; line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .qr-label { font-size: 8px; color: #a09580; text-align: center; }
+
+  @media print {
+    body { background: white; padding: 10mm; }
+    .version-section { page-break-inside: avoid; }
+    .card, .v1-wrap, .v1-back-wrap { filter: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1>種子 — 邀請函設計</h1>
+<p class="page-note">桃園市青溪國小 114 學年度創造力資優班畢業成果展 ・ 三版比較</p>
+
+<!-- =============================================
+     VERSION 1 — Ticket tear-line 票券撕線風格
+     ============================================= -->
+<div class="version-section">
+  <div class="version-title">版本一 ── 票券撕線</div>
+  <div class="version-desc">仿展覽票券設計，右側副券可撕下留念</div>
+
+  <div class="card-pair">
+    <div class="side-label">── 正 面 ──</div>
+    <!-- FRONT -->
+    <div class="v1-wrap">
+      <div class="v1-main">
+        <div style="position:relative;z-index:1;">
+          <div class="v1-school">桃園市青溪國小 ─ 第九屆創造力資優班</div>
+          <div class="v1-title">畢業成果展<span class="accent">。</span></div>
+          <div class="v1-subtitle">GRADUATION EXHIBITION 2026</div>
+        </div>
+        <div class="v1-details">
+          <div class="v1-detail">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#6b5e4d"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+            <span>115.05.11（一）— 05.15（五）</span>
+          </div>
+          <div class="v1-detail">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#6b5e4d"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <span>開幕：5/11（一）19:00 B1簡報室</span>
+          </div>
+        </div>
+        <div class="v1-bottom">
+          <div class="v1-venue">土地公文化館 ｜ 青溪國小多功能教室 2F</div>
+          <div class="v1-no">NO. 0001</div>
+        </div>
+      </div>
+      <div class="v1-tear"></div>
+      <div class="v1-stub">
+        <div class="v1-stub-year">114 學年度</div>
+        <div class="v1-stub-theme">種<br>子</div>
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+          <path d="M20 35 L20 22" stroke="#6b8c42" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M20 22 Q14 18 12 12 Q18 14 20 22" fill="#8aad5a" opacity="0.7"/>
+          <path d="M20 22 Q26 16 28 10 Q22 13 20 22" fill="#6b8c42" opacity="0.6"/>
+        </svg>
+        <div class="v1-stub-label">INVITATION</div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="side-label" style="margin-top:12px;">── 背 面 ──</div>
+    <div class="v1-back-wrap">
+      <div class="v1-back-main">
+        <div class="v1-back-left">
+          <div>
+            <div class="back-title">展覽資訊 Exhibition Info</div>
+            <div class="venue-block">
+              <div class="venue-label">VENUE 1 ── 會場一</div>
+              <div class="venue-name">桃園市土地公文化館</div>
+              <div class="venue-addr">桃園市桃園區三民路一段100號</div>
+            </div>
+            <div class="venue-block">
+              <div class="venue-label">VENUE 2 ── 會場二</div>
+              <div class="venue-name">青溪國小多功能教室 2F</div>
+              <div class="venue-addr">桃園市桃園區自強路80號</div>
+            </div>
+          </div>
+          <div class="seed-note">
+            <strong>種子紙 Seed Paper</strong><br>
+            此卡使用種子紙印製，內含植物種子。展後將卡片撕碎埋入土中，澆水即可發芽。
+          </div>
+        </div>
+        <div class="v1-back-right">
+          <div class="qr-box">QR Code</div>
+          <div class="qr-label">掃描查看展覽詳情</div>
+        </div>
+      </div>
+      <div class="v1-tear"></div>
+      <div class="v1-back-stub">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <path d="M20 35 L20 22" stroke="#6b8c42" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M20 22 Q14 18 12 12 Q18 14 20 22" fill="#8aad5a" opacity="0.7"/>
+          <path d="M20 22 Q26 16 28 10 Q22 13 20 22" fill="#6b8c42" opacity="0.6"/>
+        </svg>
+        <div class="v1-back-stub-note">撕下副券<br>留作紀念</div>
+        <div style="font-size:7px;color:#c8c0b4;letter-spacing:3px;margin-top:4px;">KEEPSAKE</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     VERSION 2 — Circle window 圓形窗口
+     ============================================= -->
+<div class="version-section">
+  <div class="version-title">版本二 ── 圓形窗口</div>
+  <div class="version-desc">左側圓形窗口搭配種子發芽插圖，優雅留白</div>
+
+  <div class="card-pair">
+    <div class="side-label">── 正 面 ──</div>
+    <!-- FRONT -->
+    <div class="card v2-front">
+      <div class="v2-circle-area">
+        <div class="v2-circle">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <path d="M40 65 L40 42" stroke="#6b8c42" stroke-width="3" stroke-linecap="round"/>
+            <path d="M40 42 Q30 34 26 22 Q34 28 40 42" fill="#8aad5a" opacity="0.8"/>
+            <path d="M40 42 Q50 32 54 20 Q46 28 40 42" fill="#6b8c42" opacity="0.7"/>
+            <path d="M40 42 Q34 38 28 32 Q36 34 40 42" fill="#a8c47a" opacity="0.5"/>
+            <ellipse cx="40" cy="67" rx="10" ry="3" fill="#c4b89e" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="v2-info">
+        <div>
+          <div class="v2-school">桃園市青溪國小</div>
+          <div class="v2-title">種子</div>
+          <div class="v2-en">SEEDS — Graduation Exhibition</div>
+        </div>
+        <div class="v2-divider"></div>
+        <div class="v2-meta">
+          第九屆創造力資優班畢業成果展<br>
+          115.05.11（一）— 05.15（五）<br>
+          開幕 Opening：5/11（一）19:00<br>
+          展覽：土地公文化館 ／ 青溪國小 2F<br>
+          開幕：青溪國小 B1 簡報室
+        </div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="side-label" style="margin-top:12px;">── 背 面 ──</div>
+    <div class="card v2-back">
+      <div class="v2-back-deco-circle"></div>
+      <div class="v2-back-circle-area">
+        <div class="v2-back-circle">
+          <div class="qr-box" style="width:75px;height:75px;border-radius:50%;border-color:#d4c9b8;">QR Code</div>
+        </div>
+      </div>
+      <div class="v2-back-info">
+        <div>
+          <div class="back-title">展覽資訊 Exhibition Info</div>
+          <div class="venue-block">
+            <div class="venue-label">VENUE 1 ── 會場一</div>
+            <div class="venue-name">桃園市土地公文化館</div>
+            <div class="venue-addr">桃園市桃園區三民路一段100號</div>
+          </div>
+          <div class="venue-block">
+            <div class="venue-label">VENUE 2 ── 會場二</div>
+            <div class="venue-name">青溪國小多功能教室 2F</div>
+            <div class="venue-addr">桃園市桃園區自強路80號</div>
+          </div>
+        </div>
+        <div class="seed-note">
+          <strong>種子紙 Seed Paper</strong><br>
+          此卡使用種子紙印製，內含植物種子。展後將卡片撕碎埋入土中，澆水即可發芽。
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     VERSION 3 — Color block split 色塊分割
+     ============================================= -->
+<div class="version-section">
+  <div class="version-title">版本三 ── 色塊分割</div>
+  <div class="version-desc">左側深色塊搭配直排主題字，現代俐落</div>
+
+  <div class="card-pair">
+    <div class="side-label">── 正 面 ──</div>
+    <!-- FRONT -->
+    <div class="card v3-front">
+      <div class="v3-left">
+        <div class="v3-theme">種子</div>
+        <div class="v3-year-label">114 學年度</div>
+      </div>
+      <div class="v3-right">
+        <div>
+          <div class="v3-school">桃園市青溪國小</div>
+          <div class="v3-title">畢業成果展</div>
+          <div class="v3-en">9th Gifted Class Graduation Exhibition</div>
+        </div>
+        <div class="v3-line"></div>
+        <div class="v3-meta">
+          展期 ── 115.05.11（一）— 05.15（五）<br>
+          開幕 ── 5/11（一）19:00 B1 簡報室<br>
+          展覽 ── 土地公文化館 ／ 青溪國小 2F
+        </div>
+        <div class="v3-footer">
+          <div class="v3-venue">第九屆創造力資優班</div>
+          <div class="v3-badge">INVITATION</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="side-label" style="margin-top:12px;">── 背 面 ──</div>
+    <div class="card v3-back">
+      <div class="v3-back-left">
+        <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;">
+          <div class="qr-box" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);width:90px;height:90px;">QR Code</div>
+          <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:2px;text-align:center;">掃描查看<br>展覽詳情</div>
+        </div>
+      </div>
+      <div class="v3-back-right">
+        <div>
+          <div class="back-title">展覽資訊 Exhibition Info</div>
+          <div class="venue-block">
+            <div class="venue-label">VENUE 1 ── 會場一</div>
+            <div class="venue-name">桃園市土地公文化館</div>
+            <div class="venue-addr">桃園市桃園區三民路一段100號</div>
+          </div>
+          <div class="venue-block">
+            <div class="venue-label">VENUE 2 ── 會場二</div>
+            <div class="venue-name">青溪國小多功能教室 2F</div>
+            <div class="venue-addr">桃園市桃園區自強路80號</div>
+          </div>
+        </div>
+        <div class="seed-note">
+          <strong>種子紙 Seed Paper</strong><br>
+          此卡使用種子紙印製，內含植物種子。展後將卡片撕碎埋入土中，澆水即可發芽。
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
