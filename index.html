@@ -225,10 +225,14 @@
   .vi-postmark-text { font-size: 7px; color: rgba(107,140,66,0.35); text-align: center; letter-spacing: 1px; line-height: 1.3; font-weight: 700; }
   /* I back */
   .vi-back-outer { width: 560px; height: 220px; filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.12)); background: #faf6ef; border-radius: 12px; padding: 10px; }
-  .vi-back-border { width: 100%; height: 100%; border: 2px dashed #d4c9b8; border-radius: 6px; padding: 14px 18px; display: flex; gap: 16px; position: relative; }
+  .vi-back-border { width: 100%; height: 100%; border: 2px dashed #d4c9b8; border-radius: 6px; padding: 10px 14px; display: flex; gap: 12px; position: relative; overflow: hidden; }
   .vi-back-left { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-  .vi-back-right { width: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px dashed #d4c9b8; padding-left: 12px; }
-  .vi-back-stamp { position: absolute; bottom: 10px; right: 14px; width: 50px; height: 60px; background: #fff; border: 1px solid #e0d8ca; border-radius: 3px; overflow: hidden; opacity: 0.2; }
+  .vi-back-left .back-title { font-size: 11px; margin-bottom: 6px; padding-bottom: 4px; }
+  .vi-back-left .seed-note { font-size: 7px; line-height: 1.4; margin-top: 4px; padding-top: 4px; }
+  .vi-back-left .seed-note strong { font-size: 7.5px; }
+  .vi-back-left .venue-name { font-size: 10px; }
+  .vi-back-right { width: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px dashed #d4c9b8; padding-left: 10px; }
+  .vi-back-stamp { position: absolute; bottom: 10px; right: 105px; width: 50px; height: 60px; background: #fff; border: 1px solid #e0d8ca; border-radius: 3px; overflow: hidden; opacity: 0.15; }
   .vi-back-stamp img { width: 100%; height: 100%; object-fit: cover; }
 
   @media print { body { background: white; padding: 10mm; } .vote-bar, .result-bar { display: none !important; } .version-section { page-break-inside: avoid; } }
