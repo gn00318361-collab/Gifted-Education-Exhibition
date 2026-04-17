@@ -76,7 +76,11 @@
     background: #faf6ef;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);  /* same subtle lift as the front */
   }
-  .vc-back-logo-area { width: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; gap: 4px; }
+  .vc-back-logo-area {
+    width: 200px;
+    display: flex; align-items: center; justify-content: center;   /* same centering as .vc-circle-area on the front */
+    position: relative;
+  }
   .vc-back-logo-area .qr-circle {
     width: 160px; height: 160px; border-radius: 50%;
     background: #fff;
@@ -84,8 +88,12 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);   /* matches front circle */
   }
   .vc-back-logo-area .qr-circle img { width: 108px; height: 108px; display: block; }
-  .vc-back-logo-area .qr-caption { font-size: 9px; color: #8a7d6b; letter-spacing: 2px; white-space: nowrap; }
-  .vc-back-info { flex: 1; padding: 22px 28px 22px 6px; display: flex; flex-direction: column; justify-content: space-between; }
+  .vc-back-logo-area .qr-caption {
+    position: absolute; bottom: 10px; left: 0; right: 0;
+    text-align: center;
+    font-size: 9px; color: #8a7d6b; letter-spacing: 2px;
+  }
+  .vc-back-info { flex: 1; padding: 24px 28px 24px 18px; display: flex; flex-direction: column; justify-content: space-between; }   /* matches .vc-info on the front so text x-start aligns */
   .vc-back-deco { position: absolute; width: 200px; height: 200px; border-radius: 50%; border: 1px solid #ece6da; top: -60px; right: -60px; opacity: 0.4; }
 
   /* ============================================
